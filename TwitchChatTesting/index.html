@@ -38,13 +38,65 @@
 			border-radius: 5px;
 			font-size: 16px;
 			cursor: pointer;
-			z-index: 5;
+		}
+
+		@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+		#back_button {
+			position: absolute;
+			background-color: #313030;
+			border: none;
+			padding: 0.5em 1em;
+			margin: 10px;
+			border-radius: 30px;
+			left: 0;
+			top: 0;
+			color: white;
+			font-family: 'kanit';
+			cursor: pointer;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		#back_button::after {
+			content: '';
+			height: 100%;
+			width: 100%;
+			padding: 2px;
+			border-radius: 90px;
+			background-image: linear-gradient(to bottom right, #008cff, #e100ff);
+			background-color: red;
+
+			position: absolute;
+			z-index: -1;
+		}
+
+		@keyframes onHover {
+
+			0%,
+			100% {
+				transform: scale(100%);
+			}
+
+			70% {
+				transform: scale(103%);
+			}
+		}
+
+		#back_button:hover {
+			box-shadow: 10px 0 50px #008cff38, -10px 0 50px #e100ff38;
+			cursor: pointer;
+			animation: onHover 0.2s ease-in-out;
+			animation-fill-mode: forwards;
 		}
 	</style>
 
 </head>
 
 <body>
+	<button id="back_button">RETURN</button>
 	<div id="chat_container">
 		<!-- Chat messages will be appended here dynamically -->
 		<div class="chat_line" data-nick="summonangelus">
@@ -207,6 +259,11 @@
 		document.getElementById("clearButton").addEventListener("click", function () {
 			clearChat();
 		});
+
+		const retButton = document.getElementById("back_button");
+		retButton.addEventListener("click", function () {
+			window.location.href = "/index.html"
+		})
 
 	</script>
 </body>

@@ -9,5 +9,7 @@ function _goChatTwitch () {
 }
 
 function _goPortfolio () {
-  window.location.href = 'https://sanja3dart.notion.site/Portfolio-Sanja-3DArt-0e8af653b37d486c9a12d128a760e166'
+  window.open(
+    'https://sanja3dart.notion.site/Portfolio-Sanja-3DArt-0e8af653b37d486c9a12d128a760e166'
+  )
 }
