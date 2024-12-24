@@ -1,7 +1,13 @@
-const button = document.getElementById('page-button')
+const twitchButton = document.getElementById('button-twitch')
+const portfolioButton = document.getElementById('button-portfolio')
 
-button.addEventListener('click', goWeb)
+twitchButton.addEventListener('click', _goChatTwitch)
+portfolioButton.addEventListener('click', _goPortfolio)
 
-function goWeb (params) {
+function _goChatTwitch () {
   window.location.href = 'TwitchChatTesting/index.html'
+}
+
+function _goPortfolio () {
+  window.location.href = 'https://sanja3dart.notion.site/Portfolio-Sanja-3DArt-0e8af653b37d486c9a12d128a760e166'
 }
