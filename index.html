@@ -1,1 +1,214 @@
-Halo
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Twitch Chat CSS Tester</title>
+	<link rel="stylesheet" href="Angelus_chatCSS.css">
+
+	<style>
+		body {
+			background-color: #0f0d17;
+		}
+
+		#buttons {
+			display: flex;
+			width: 90vi;
+			justify-content: center;
+		}
+
+		#chat_container {
+			max-width: 570px;
+			margin-bottom: 10px;
+			font-size: 30px !important;
+		}
+
+		.message {
+			font-size: calc(30px - 10%);
+		}
+
+		#toggleButton,
+		#clearButton {
+			margin: 10px;
+			margin-bottom: 2vb;
+			padding: 5px;
+			padding-inline: 35px;
+			border: 2px solid;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+			z-index: 5;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div id="chat_container">
+		<!-- Chat messages will be appended here dynamically -->
+		<div class="chat_line" data-nick="summonangelus">
+			<span class="user_info">
+				<img class="badge" src="https://static-cdn.jtvnw.net/badges/v1/d57d8874-6f23-4497-925e-7dda22f21211/3">
+				<span class="nick" style="color:#ffd38b;">SummonAngelus</span>
+				<span class="colon">:</span></span><span class="message">Karen prechiocha <img class="emoji"
+					draggable="false" alt="🎃"
+					src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f383.png">🪽</span>
+
+		</div>
+		<div class="chat_line" data-nick="summonangelus">
+			<span class="user_info">
+				<img class="badge" src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/3">
+				<img class="badge" src="https://static-cdn.jtvnw.net/badges/v1/a1dd5073-19c3-4911-8cb4-c464a7bc1510/3">
+				<span class="nick" style="color:#ffd38b;">SummonAngelus </span>
+				<span class="colon">: </span>
+			</span>
+			<span class="message">muack muack muack <img class="emote"
+					src="https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_239980a1db304d16b4aeac7e6fe28c70/default/dark/3.0">
+				aaaa a a a a aa a a tequero tequero muach cua dshfgjdsghfsdjfg dhfgjdsjhgf
+		</div>
+	</div>
+	<div id="buttons">
+		<button id="toggleButton">Start</button>
+		<button id="clearButton">Clear</button>
+	</div>
+
+	<script>
+		// Predefined random data for simulation
+		const usernames = ["Streamer", "Viewer1", "GamerPro", "ChatLurker", "FunPerson"];
+		const messages = [
+			"Hello everyone!",
+			"This is amazing!",
+			"Wow, what a play!",
+			"Can you explain that move?",
+			"Good game! GG!",
+			"Haha, that's hilarious!",
+			"When does the next match start?",
+			"Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+			"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+		];
+		const badges = [
+			"https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/3",
+			"https://static-cdn.jtvnw.net/badges/v1/d57d8874-6f23-4497-925e-7dda22f21211/3",
+			"https://static-cdn.jtvnw.net/badges/v1/a1dd5073-19c3-4911-8cb4-c464a7bc1510/3",
+			"https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/3",
+			"https://static-cdn.jtvnw.net/badges/v1/d12a2e27-16f6-41d0-ab77-b780518f00a3/3",
+			"https://static-cdn.jtvnw.net/badges/v1/b817aba4-fad8-49e2-b88a-7cc744dfa6ec/3",
+			""];
+
+		const emotes = [];
+
+		let chatInterval = null; // Variable to hold the interval ID
+
+		function getRandomItem(array) {
+			return array[Math.floor(Math.random() * array.length)];
+		}
+
+		// Generate a random chat message
+		function generateRandomMessage() {
+			const container = document.getElementById("chat_container");
+
+			//Creamos "chat_line", que es el bloque que encapsula nombre y un mensaje 
+			const chatLine = document.createElement("div");
+			chatLine.classList.add("chat_line");
+
+			//Creamos el user_info
+			const userInfo = document.createElement("span");
+			userInfo.classList.add("user_info");
+			chatLine.appendChild(userInfo);
+
+			//Asignamos las badges
+			const badgeCount = Math.floor(Math.random() * 4); // Number of badges to add
+			const usedBadges = new Set(); // Set to track used badges
+
+			for (let i = 0; i < badgeCount; i++) {
+				let badge;
+
+				// Ensure the badge is not already used
+				do {
+					badge = getRandomItem(badges);
+				} while (usedBadges.has(badge) && badge);
+
+				if (badge) {
+					usedBadges.add(badge); // Mark this badge as used
+
+					const badgeElement = document.createElement("img");
+					badgeElement.classList.add("badge");
+					badgeElement.src = badge;
+					userInfo.appendChild(badgeElement);
+				}
+			}
+
+			// Function to generate a random RGB color
+			function getRandomColor() {
+				const r = Math.floor(Math.random() * 256); // Red: 0-255
+				const g = Math.floor(Math.random() * 256); // Green: 0-255
+				const b = Math.floor(Math.random() * 256); // Blue: 0-255
+				return `rgb(${r}, ${g}, ${b})`;
+			}
+
+			// Creamos el nick
+			const nick = document.createElement("span");
+			nick.classList.add("nick");
+			nick.style.color = getRandomColor(); // Assign a random color
+			nick.textContent = getRandomItem(usernames);
+			userInfo.appendChild(nick);
+
+			//Creamos la coma
+			const colon = document.createElement("span");
+			colon.classList.add("colon");
+			colon.textContent = ":";
+			userInfo.appendChild(colon);
+
+			//Ahora hacemos el mensaje de chat
+			const messageElement = document.createElement("span");
+			messageElement.classList.add("message");
+			messageElement.textContent = getRandomItem(messages);
+			chatLine.appendChild(messageElement);
+
+			container.appendChild(chatLine);
+		}
+
+		// Start generating random messages
+		function startChatGeneration() {
+			if (!chatInterval) { // Only start if not already running
+				chatInterval = setInterval(generateRandomMessage, 500);
+				document.getElementById("toggleButton").textContent = "Stop";
+			}
+		}
+
+		// Stop generating random messages
+		function stopChatGeneration() {
+			if (chatInterval) {
+				clearInterval(chatInterval);
+				chatInterval = null; // Reset the interval ID
+				document.getElementById("toggleButton").textContent = "Start";
+			}
+		}
+
+		// Toggle chat generation
+		document.getElementById("toggleButton").addEventListener("click", function () {
+			if (chatInterval) {
+				stopChatGeneration();
+			} else {
+				startChatGeneration();
+			}
+		});
+
+		// Stop the chat generation initially
+		stopChatGeneration();
+
+		//ClearChat
+		function clearChat() {
+			const container = document.getElementById("chat_container");
+			container.innerHTML = ""; // Clear all child elements
+		}
+
+		document.getElementById("clearButton").addEventListener("click", function () {
+			clearChat();
+		});
+
+	</script>
+</body>
+
+</html>
