@@ -28,29 +28,21 @@
 			font-size: calc(30px - 10%);
 		}
 
-		#toggleButton,
-		#clearButton {
-			margin: 10px;
-			margin-bottom: 2vb;
-			padding: 5px;
-			padding-inline: 35px;
-			border: 2px solid;
-			border-radius: 5px;
-			font-size: 16px;
-			cursor: pointer;
-		}
-
 		@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
+		#toggleButton,
+		#clearButton,
 		#back_button {
-			position: absolute;
+			position: relative;
+			margin: 10px;
+			margin-bottom: 2vb;
+			padding: 0.5em 1em;
+			padding-inline: 35px;
+			font-size: 16px;
+
 			background-color: #313030;
 			border: none;
-			padding: 0.5em 1em;
-			margin: 10px;
 			border-radius: 30px;
-			left: 0;
-			top: 0;
 			color: white;
 			font-family: 'kanit';
 			cursor: pointer;
@@ -60,6 +52,8 @@
 			align-items: center;
 		}
 
+		#toggleButton::after,
+		#clearButton::after,
 		#back_button::after {
 			content: '';
 			height: 100%;
@@ -67,10 +61,17 @@
 			padding: 2px;
 			border-radius: 90px;
 			background-image: linear-gradient(to bottom right, #008cff, #e100ff);
-			background-color: red;
 
 			position: absolute;
 			z-index: -1;
+		}
+
+
+		#back_button {
+			position: absolute;
+			left: 0;
+			top: 0;
+			padding: 0.5em 1em;
 		}
 
 		@keyframes onHover {
@@ -85,7 +86,9 @@
 			}
 		}
 
-		#back_button:hover {
+		#back_button:hover,
+		#toggleButton:hover,
+		#clearButton:hover {
 			box-shadow: 10px 0 50px #008cff38, -10px 0 50px #e100ff38;
 			cursor: pointer;
 			animation: onHover 0.2s ease-in-out;
@@ -96,7 +99,7 @@
 </head>
 
 <body>
-	<button id="back_button">RETURN</button>
+	<button id="back_button">Return</button>
 	<div id="chat_container">
 		<!-- Chat messages will be appended here dynamically -->
 		<div class="chat_line" data-nick="summonangelus">

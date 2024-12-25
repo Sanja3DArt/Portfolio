@@ -5,12 +5,15 @@
     --color2: #2b1c7e;
     --color3: #161a20;
     --color4: #C8ACD6;
+
+    --color-h1: rgb(226, 226, 226);
+    --color-h2: rgb(208, 179, 211);
 }
 
 html,
 body {
     height: 100%;
-    overflow: hidden;
+    overflow-y: auto;
     font-size: 25px;
     min-height: 100vh;
 }
@@ -24,17 +27,45 @@ body {
     align-items: center;
 }
 
-#main-container {
-    /* background-color: var(--color2);
-    box-shadow: 0px 0px 15px var(--color2); */
+main {
+    font-family: 'Kanit';
+    background-color: var(--color1);
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    height: fit-content;
-    padding: 30px 30px;
-    border-radius: 20px;
     gap: 1em;
+    z-index: 0;
+}
+
+h1 {
+    font-size: 55px;
+    color: var(--color-h1);
+    text-shadow: #b565ff9a 0px 3px 3px;
+    cursor: default;
+    user-select: none;
+    margin: 0px;
+}
+
+h2 {
+    color: var(--color-h2);
+    text-shadow: #6432929a 0px 3px 3px;
+    cursor: default;
+    user-select: none;
+    margin: 0px;
+}
+
+#main-container {
+    /* box-shadow: 0px 0px 15px var(--color2); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 5px 1.2em 1em;
+    gap: 0.5em;
+
+    border-radius: 40px;
 }
 
 #link {
