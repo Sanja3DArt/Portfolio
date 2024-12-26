@@ -166,11 +166,16 @@ body {
 
 main {
 	z-index: 0;
-	padding: min(30px, 7%);
+	padding: 10px min(15%);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 main h1 {
 	font-size: 55px;
+	line-height: 1em;
 	color: var(--color-h1);
 	text-shadow: #b565ff9a 0px 3px 3px;
 	cursor: default;
@@ -188,6 +193,15 @@ main h2 {
 	margin-bottom: 15px;
 }
 
+main p {
+	font-size: 1em;
+	font-weight: 300;
+	color: var(--color-p);
+	margin-top: 0.5em;
+	margin-bottom: 1em;
+	text-align: justify;
+}
+
 #main-container {
 	/* box-shadow: 0px 0px 15px var(--color2); */
 	/* display: flex; */
@@ -201,29 +215,33 @@ main h2 {
 	/* border: 2px red solid; */
 }
 
-#link {
-	font-size: 20px !important;
+#links {
+	display: flex;
+	justify-content: space-evenly;
+	gap: 15px;
 }
 
-.btn-menu {
+.link-btn {
 	background-color: var(--color3);
 	font-family: 'Kanit';
-	font-size: 1em;
 	color: #f0f0f0;
 	position: relative;
 
 	padding: 0.5em 1em;
-	margin-top: 5px;
-	margin-bottom: 15px;
 	border: none;
 	border-radius: 90px;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	svg {
+		max-height: 1.2em;
+		fill: var(--color-p);
+	}
 }
 
-.btn-menu::after {
+.link-btn::after {
 	content: '';
 	position: absolute;
 	height: 100%;
@@ -234,23 +252,34 @@ main h2 {
 	z-index: -1;
 }
 
-@keyframes popIn {
-
-	0%,
-	100% {
-		transform: scale(100%);
-	}
-
-	70% {
-		transform: scale(103%);
-	}
-}
-
-.btn-menu:hover {
+.link-btn:hover {
 	box-shadow: 40px 0 100px #008cff70, -40px 0 100px #e100ff70;
 	cursor: pointer;
 	animation: popIn 0.2s ease-in-out;
 	animation-fill-mode: forwards;
+
+	svg {
+		fill: var(--color1);
+	}
+}
+
+@keyframes popIn {
+
+	0% {
+		transform: scale(100%);
+	}
+
+	15% {
+		transform: scale(80%);
+	}
+
+	/* 70% {
+		transform: scale(103%);
+	} */
+
+	100% {
+		transform: scale(130%);
+	}
 }
 
 @media(max-width: 800px) {
