@@ -127,7 +127,7 @@ body {
 #sidebar>ul>li:first-child {
 	display: flex;
 	justify-content: flex-end;
-	margin-bottom: 16px;
+	margin-bottom: 10px;
 
 	.logo {
 		font-size: 1.2em;
@@ -182,6 +182,7 @@ main h1 {
 	user-select: none;
 	margin-top: 15px;
 	margin-bottom: 0.7em;
+	text-align: center;
 }
 
 main h2 {
@@ -191,6 +192,7 @@ main h2 {
 	user-select: none;
 	margin-top: 5px;
 	margin-bottom: 15px;
+	font-variant: small-caps;
 }
 
 main p {
@@ -200,6 +202,7 @@ main p {
 	margin-top: 0.5em;
 	margin-bottom: 1em;
 	text-align: justify;
+	letter-spacing: 1px;
 }
 
 #main-container {
@@ -217,7 +220,7 @@ main p {
 
 #links {
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	gap: 15px;
 }
 
@@ -227,13 +230,15 @@ main p {
 	color: #f0f0f0;
 	position: relative;
 
-	padding: 0.5em 1em;
+	padding: 0.5em;
 	border: none;
-	border-radius: 90px;
+	border-radius: 10px;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	width: 25%;
 
 	svg {
 		max-height: 1.2em;
@@ -246,8 +251,8 @@ main p {
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	padding: 3px;
-	border-radius: 90px;
+	padding: 2px;
+	border-radius: 10px;
 	background-image: linear-gradient(to bottom right, #008cff, #e100ff);
 	z-index: -1;
 }
@@ -257,6 +262,7 @@ main p {
 	cursor: pointer;
 	animation: popIn 0.2s ease-in-out;
 	animation-fill-mode: forwards;
+	z-index: 2;
 
 	svg {
 		fill: var(--color1);
@@ -288,7 +294,7 @@ main p {
 	}
 
 	main {
-		padding: 2em 1em 60px 1em;
+		padding: 2em 2em 60px 2em;
 	}
 
 	#main-container {

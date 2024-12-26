@@ -9,7 +9,7 @@
 
 	<style>
 		body {
-			background-color: #0f0d17;
+			background-image: linear-gradient(to bottom right, hsl(207, 100%, 5%), hsl(293, 100%, 5%));
 		}
 
 		#buttons {
@@ -30,9 +30,8 @@
 
 		@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
-		#toggleButton,
-		#clearButton,
-		#back_button {
+
+		.btn {
 			position: relative;
 			margin: 10px;
 			margin-bottom: 2vb;
@@ -52,9 +51,7 @@
 			align-items: center;
 		}
 
-		#toggleButton::after,
-		#clearButton::after,
-		#back_button::after {
+		.btn::after {
 			content: '';
 			height: 100%;
 			width: 100%;
@@ -72,6 +69,7 @@
 			left: 0;
 			top: 0;
 			padding: 0.5em 1em;
+			fill: white;
 		}
 
 		@keyframes onHover {
@@ -86,9 +84,7 @@
 			}
 		}
 
-		#back_button:hover,
-		#toggleButton:hover,
-		#clearButton:hover {
+		.btn:hover {
 			box-shadow: 10px 0 50px #008cff38, -10px 0 50px #e100ff38;
 			cursor: pointer;
 			animation: onHover 0.2s ease-in-out;
@@ -99,7 +95,13 @@
 </head>
 
 <body>
-	<button id="back_button">Return</button>
+	<a href="../index.html" class="btn" id="back_button">
+		<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+			<path
+				d="m254.31-450 132.92 132.92q8.31 8.31 8.5 20.89.19 12.57-8.5 21.27-8.69 8.69-21.08 8.69-12.38 0-21.07-8.69L165.31-454.69q-5.62-5.62-7.92-11.85-2.31-6.23-2.31-13.46t2.31-13.46q2.3-6.23 7.92-11.85l179.77-179.77q8.31-8.3 20.88-8.5 12.58-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L254.31-510H790q12.77 0 21.38 8.62Q820-492.77 820-480t-8.62 21.38Q802.77-450 790-450H254.31Z" />
+		</svg>
+
+	</a>
 	<div id="chat_container">
 		<!-- Chat messages will be appended here dynamically -->
 		<div class="chat_line" data-nick="summonangelus">
@@ -124,8 +126,8 @@
 		</div>
 	</div>
 	<div id="buttons">
-		<button id="toggleButton">Start</button>
-		<button id="clearButton">Clear</button>
+		<button id="toggleButton" class="btn">Start</button>
+		<button id="clearButton" class="btn">Clear</button>
 	</div>
 
 	<script>
