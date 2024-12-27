@@ -4,10 +4,109 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Twitch Chat CSS Tester</title>
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
-	<title>Sanja3DArt Portfolio</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="Angelus_chatCSS.css">
 	<script type="text/javascript" src="script.js" defer></script>
+
+	<style>
+		#buttons {
+			display: flex;
+			justify-content: center;
+		}
+
+		.btn {
+			position: relative;
+			margin: 10px;
+			margin-bottom: 2vb;
+			padding: 0.5em 1em;
+			padding-inline: 35px;
+			font-size: 16px;
+
+			background-color: #313030;
+			border: none;
+			border-radius: 30px;
+			color: white;
+			font-family: 'kanit';
+			cursor: pointer;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.btn::after {
+			content: '';
+			height: 100%;
+			width: 100%;
+			padding: 2px;
+			border-radius: 90px;
+			background-image: linear-gradient(to bottom right, #008cff, #e100ff);
+
+			position: absolute;
+			z-index: -1;
+		}
+
+		#back_button {
+			position: absolute;
+			left: 0;
+			top: 0;
+			padding: 0.5em 1em;
+			fill: white;
+		}
+
+		@keyframes onHover {
+
+			0%,
+			100% {
+				transform: scale(100%);
+			}
+
+			70% {
+				transform: scale(103%);
+			}
+		}
+
+		.btn:hover {
+			box-shadow: 10px 0 50px #008cff38, -10px 0 50px #e100ff38;
+			cursor: pointer;
+			animation: onHover 0.2s ease-in-out;
+			animation-fill-mode: forwards;
+		}
+
+		body {
+			position: unset;
+			height: 100vh;
+			height: 100dvh;
+			display: grid;
+		}
+
+		main {
+			z-index: 0;
+
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			height: 100vh;
+			height: 100dvh;
+			justify-content: end;
+			/* background-color: #008cff; */
+		}
+
+		#chat_container {
+			margin-bottom: unset;
+			width: unset;
+		}
+
+		@media(max-width: 800px) {
+			main {
+				height: calc(100dvh - 90px);
+			}
+		}
+	</style>
+
 </head>
 
 <body>
@@ -24,8 +123,8 @@
 					</svg>
 				</button>
 			</li>
-			<li class="active">
-				<a href="index.html" onclick="toggleActive()">
+			<li>
+				<a href="../index.html" onclick="toggleActive()">
 					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
 						<path
 							d="M240-200h133.85v-201.54q0-15.36 10.39-25.76 10.4-10.39 25.76-10.39h140q15.36 0 25.76 10.39 10.39 10.4 10.39 25.76V-200H720v-353.85q0-3.07-1.35-5.57-1.34-2.5-3.65-4.43L487.31-735q-3.08-2.69-7.31-2.69-4.23 0-7.31 2.69L245-563.85q-2.31 1.93-3.65 4.43-1.35 2.5-1.35 5.57V-200Zm-60 0v-353.85q0-17.17 7.68-32.53 7.69-15.37 21.24-25.31l227.7-171.54q18.95-14.46 43.32-14.46t43.44 14.46l227.7 171.54q13.55 9.94 21.24 25.31 7.68 15.36 7.68 32.53V-200q0 24.54-17.73 42.27Q744.54-140 720-140H562.31q-15.37 0-25.76-10.4-10.4-10.39-10.4-25.76v-201.53h-92.3v201.53q0 15.37-10.4 25.76-10.39 10.4-25.76 10.4H240q-24.54 0-42.27-17.73Q180-175.46 180-200Zm300-269.23Z" />
@@ -43,7 +142,7 @@
 					<span>Portfolio</span>
 				</a>
 			</li>
-			<li>
+			<li class="active">
 				<a href="chat.html">
 					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
 						<path
@@ -94,7 +193,7 @@
 				</ul>
 			</li>
 			<li>
-				<a href="#3DModels" onclick="toggleActive(this.parentElement)">
+				<a href="../index.html#3DModels" onclick="toggleActive(this.parentElement)">
 					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
 						<path
 							d="M460-171.46v-297.08L200-619.08v283.23q0 6.16 3.08 11.54 3.07 5.39 9.23 9.23L460-171.46Zm40 0 247.69-143.62q6.16-3.84 9.23-9.23 3.08-5.38 3.08-11.54v-283.23L500-468.54v297.08Zm-20-331.46 257-148.54-244.69-141.62q-6.16-3.84-12.31-3.84t-12.31 3.84L223-651.46l257 148.54ZM192.31-279.69q-15.16-8.69-23.73-23.62-8.58-14.92-8.58-32.31v-288.76q0-17.39 8.58-32.31 8.57-14.93 23.73-23.62l255.38-147.15q15.16-8.69 32.31-8.69 17.15 0 32.31 8.69l255.38 147.15q15.16 8.69 23.73 23.62 8.58 14.92 8.58 32.31v288.76q0 17.39-8.58 32.31-8.57 14.93-23.73 23.62L512.31-132.54q-15.16 8.69-32.31 8.69-17.15 0-32.31-8.69L192.31-279.69ZM480-480Z" />
@@ -103,7 +202,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#Games" onclick="toggleActive(this.parentElement)">
+				<a href="../index.html#Games" onclick="toggleActive(this.parentElement)">
 					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
 						<path
 							d="M189-180q-53.08 0-89.81-36.85Q62.46-253.69 62-307.32q0-7.91.62-15.37.61-7.46 2.61-15.69l84-336q12.26-47.14 49.93-76.38Q236.82-780 285-780h390q48.18 0 85.84 29.24 37.67 29.24 49.93 76.38l84 336q2 8.23 3.11 16.19 1.12 7.96 1.12 15.87 0 53.63-37.35 89.97Q824.31-180 771.05-180q-36.67 0-67.28-19.31-30.62-19.31-47.08-51.92L627.92-310q-7.3-15-21.92-22.5-14.62-7.5-31-7.5H385q-16.19 0-30.9 7.31-14.72 7.31-22.02 22.69l-28.77 58.77q-15.69 33.38-46.84 52.31Q225.33-180 189-180Zm3.21-40q24.17 0 44.67-13.08 20.5-13.07 30.81-34.69l28-57.77q12.63-25.58 37.05-40.02Q357.15-380 385-380h190q28.31 0 52.46 15.31 24.16 15.31 37.85 39.92l28 57q10.31 21.62 30.81 34.69Q744.62-220 769.33-220q36.41 0 62.43-24.65Q857.77-269.31 858-305q0-2.08-2.77-23.62l-84-335q-8.54-33.15-35.31-54.76Q709.15-740 675-740H285q-34.98 0-61.83 21.62-26.86 21.61-34.4 54.76l-84 335q-1.23 4.47-2.77 22.62 0 36.48 26.65 61.24Q155.31-220 192.21-220ZM540-529.23q12.38 0 21.58-9.19 9.19-9.2 9.19-21.58 0-12.38-9.19-21.58-9.2-9.19-21.58-9.19-12.38 0-21.58 9.19-9.19 9.2-9.19 21.58 0 12.38 9.19 21.58 9.2 9.19 21.58 9.19Zm80-80q12.38 0 21.58-9.19 9.19-9.2 9.19-21.58 0-12.38-9.19-21.58-9.2-9.19-21.58-9.19-12.38 0-21.58 9.19-9.19 9.2-9.19 21.58 0 12.38 9.19 21.58 9.2 9.19 21.58 9.19Zm0 160q12.38 0 21.58-9.19 9.19-9.2 9.19-21.58 0-12.38-9.19-21.58-9.2-9.19-21.58-9.19-12.38 0-21.58 9.19-9.19 9.2-9.19 21.58 0 12.38 9.19 21.58 9.2 9.19 21.58 9.19Zm80-80q12.38 0 21.58-9.19 9.19-9.2 9.19-21.58 0-12.38-9.19-21.58-9.2-9.19-21.58-9.19-12.38 0-21.58 9.19-9.19 9.2-9.19 21.58 0 12.38 9.19 21.58 9.2 9.19 21.58 9.19Zm-360.04 56.92q7.66 0 12.69-5.01 5.04-5.01 5.04-12.68v-52.31H410q7.67 0 12.68-5t5.01-12.65q0-7.66-5.01-12.69-5.01-5.04-12.68-5.04h-52.31V-630q0-7.67-5-12.68t-12.65-5.01q-7.66 0-12.69 5.01-5.04 5.01-5.04 12.68v52.31H270q-7.67 0-12.68 5t-5.01 12.65q0 7.66 5.01 12.69 5.01 5.04 12.68 5.04h52.31V-490q0 7.67 5 12.68t12.65 5.01ZM480-480Z" />
@@ -112,7 +211,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#VFX" onclick="toggleActive(this.parentElement)">
+				<a href="../index.html#VFX" onclick="toggleActive(this.parentElement)">
 					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
 						<path
 							d="M480.17-132q-72.17 0-135.73-27.39-63.56-27.39-110.57-74.35-47.02-46.96-74.44-110.43Q132-407.65 132-479.83q0-72.17 27.39-135.73 27.39-63.56 74.35-110.57 46.96-47.02 110.43-74.44Q407.65-828 479.83-828q72.17 0 135.73 27.39 63.56 27.39 110.57 74.35 47.02 46.96 74.44 110.43Q828-552.35 828-480.17q0 72.17-27.39 135.73-27.39 63.56-74.35 110.57-46.96 47.02-110.43 74.44Q552.35-132 480.17-132ZM466-160v-640q-128 17-217 105.5T160-480q0 126 89 214.5T466-160Zm28 0q50-2 96.5-17.5T674-226H494v66Zm0-94h212q21-20 37-43t27-49H494v92Zm0-120h288q8-23 12-46t6-46H494v92Zm0-120h306q-2-23-6-46t-12-46H494v92Zm0-120h276q-11-26-27-49t-37-43H494v92Zm0-120h180q-37-33-83.5-48.5T494-800v66Z" />
@@ -121,7 +220,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#Materials" onclick="toggleActive(this.parentElement)">
+				<a href="../index.html#Materials" onclick="toggleActive(this.parentElement)">
 					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
 						<path
 							d="M120-236.92v-337.7q0-15.38 10.77-26.15 10.77-10.77 26.15-10.77h76.16v-111.54q0-15.38 10.77-26.15Q254.62-760 270-760h117.69q15.39 0 26.16 10.77t10.77 26.15v111.54h110.76v-111.54q0-15.38 10.77-26.15Q556.92-760 572.31-760H690q15.38 0 26.15 10.77 10.77 10.77 10.77 26.15v111.54h76.16q15.38 0 26.15 10.77Q840-590 840-574.62v337.7q0 15.38-10.77 26.15Q818.46-200 803.08-200H156.92q-15.38 0-26.15-10.77Q120-221.54 120-236.92Zm40-3.08h640v-331.54H160V-240Zm113.08-371.54h111.54V-720H273.08v108.46Zm302.3 0h111.54V-720H575.38v108.46ZM160-240h640-640Zm113.08-371.54h111.54-111.54Zm302.3 0h111.54-111.54Z" />
@@ -132,129 +231,174 @@
 		</ul>
 	</nav>
 	<main>
-		<h1>Sanja3DArt</h1>
 		<div id="main-container">
-			<div class="container">
-				<h2> Introduction </h2>
-				<p>Hello! My name is Ángel Vázquez, and I'm a 3D / Technical artist from Barcelona, Spain. I love making
-					3D assets as artwork or for videogames.</p>
-			</div>
-			<div class="container">
-				<h2>Links</h2>
-				<div id="links">
-					<a href="https://sanja3dart.notion.site/Portfolio-Sanja-3DArt-0e8af653b37d486c9a12d128a760e166"
-						target="_blank" class="link-btn">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 50 50">
-							<path
-								d="M44.62 13.13c-.23-.21-.52-.33-.83-.33-.02 0-.05.01-.08.01l-29.86 1.92c-.63.04-1.13.58-1.13 1.21v28.75c0 .34.14.65.38.88.25.23.57.35.91.33l29.86-1.93C44.51 43.93 45 43.4 45 42.76V14.02C45 13.68 44.87 13.36 44.62 13.13zM38.11 20.92c-.6.19-.79.2-.79.2v17.24c-1.02.55-1.86.81-2.74.81-1.07 0-1.68-.24-2.5-1.5-1.74-2.69-7.41-11.81-7.41-11.81v11.45l2.23.47c0 0-.06 1.3-2.01 1.45-1.71.13-5.44.32-5.44.32 0-.47.1-1.12.84-1.31.35-.09 1.4-.37 1.4-.37V22.42h-2.24c0-1.03.3-1.83 1.38-1.91l5.79-.33 7.73 11.92V21.49l-2.24-.19c0-.93.9-1.5 1.67-1.58l5.04-.28C38.82 20.09 38.79 20.7 38.11 20.92zM4.98 8.54l5.74 5.74v29.54L5.6 37.66c-.41-.58-.62-1.25-.62-1.96V8.54zM42.72 10.91l-29.06 1.83c-.99.07-1.95-.3-2.65-.99L6.24 6.97l27.19-1.89c.81-.07 1.62.17 2.28.66L42.72 10.91z">
-							</path>
-						</svg>
-					</a>
-					<a href="https://x.com/Sanja_3DArt" target="_blank" class="link-btn">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 50 50">
-							<path
-								d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z">
-							</path>
-						</svg>
-					</a>
-					<a href="https://www.artstation.com/sanja_3dart" target="_blank" class="link-btn">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 50 50">
-							<path
-								d="M47.819 32.652L33.02 6.535C32.133 4.972 30.466 4 28.669 4H20c-.357 0-.687.19-.865.499-.179.31-.18.69-.002.999l23 40C42.312 45.81 42.643 46 43 46c.01 0 .02 0 .029 0 .368-.011.7-.224.865-.553l4.047-8.094C48.688 35.861 48.642 34.104 47.819 32.652zM27.84 28.457l-11-17C16.655 11.172 16.339 11 16 11c-.007 0-.014 0-.021 0-.347.008-.665.194-.841.493l-10 17c-.182.309-.184.692-.006 1.003C5.31 29.808 5.642 30 6 30h21c.366 0 .703-.2.879-.522C28.054 29.156 28.039 28.765 27.84 28.457zM36.874 44.515l-5-9C31.698 35.197 31.363 35 31 35H3c-.354 0-.683.188-.862.493-.18.305-.184.683-.012.992l5 9C7.302 45.803 7.637 46 8 46h28c.354 0 .683-.188.862-.493C37.042 45.202 37.046 44.824 36.874 44.515z">
-							</path>
-						</svg>
-					</a>
-					<a href="https://www.instagram.com/sanja_3dart/" target="_blank" class="link-btn">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 50 50">
-							<path
-								d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z">
-							</path>
-						</svg>
-					</a>
-					<a href="https://sanja3dart.tumblr.com/" target="_blank" class="link-btn">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 50 50">
-							<path
-								d="M 40 0 L 10 0 C 4.484375 0 0 4.484375 0 10 L 0 40 C 0 45.515625 4.484375 50 10 50 L 40 50 C 45.515625 50 50 45.515625 50 40 L 50 10 C 50 4.484375 45.515625 0 40 0 Z M 34 40.238281 C 34 40.363281 33.945313 40.480469 33.855469 40.5625 C 33.738281 40.664063 31.011719 43 24.742188 43 C 17.230469 43 17 34.617188 17 33.664063 L 17 23.011719 L 13.429688 23 C 13.191406 23 13 22.816406 13 22.578125 L 13 18.808594 C 13 18.632813 13.109375 18.472656 13.273438 18.40625 C 13.34375 18.382813 20.058594 15.773438 20.058594 9.429688 C 20.058594 9.191406 20.253906 9 20.492188 9 L 24.578125 9 C 24.816406 9 25.007813 9.191406 25.007813 9.429688 L 25 17 L 31.5625 17 C 31.800781 17 31.992188 17.207031 31.992188 17.445313 L 31.992188 22.554688 C 31.992188 22.789063 31.800781 23 31.5625 23 L 25 23 C 25 23 25 33.253906 25 33.503906 C 25 33.75 25.226563 36.765625 28.433594 36.765625 C 31.089844 36.765625 33.320313 35.398438 33.34375 35.382813 C 33.476563 35.296875 33.640625 35.292969 33.777344 35.371094 C 33.914063 35.445313 34 35.589844 34 35.746094 Z">
-							</path>
-						</svg>
-					</a>
-					<a href="https://www.linkedin.com/in/angel-sanja3dart/" target="_blank" class="link-btn">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 50 50">
-							<path
-								d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z">
-							</path>
-						</svg>
-					</a>
-					<!-- <a href="https://www.etsy.com/es/shop/Sanja3DAssets" class="link-btn"> </a>
-				<a href="https://sanja3dart.carrd.co/" class="link-btn"> </a>
-				<a href="https://linktr.ee/Sanja_3DArt" class="link-btn"> </a> -->
+			<div id="chat_container">
+				<!-- Chat messages will be appended here dynamically -->
+				<div class="chat_line" data-nick="summonangelus">
+					<span class="user_info">
+						<img class="badge"
+							src="https://static-cdn.jtvnw.net/badges/v1/d57d8874-6f23-4497-925e-7dda22f21211/3">
+						<span class="nick" style="color:#ffd38b;">SummonAngelus</span>
+						<span class="colon">:</span></span><span class="message">Karen prechiocha <img class="emoji"
+							draggable="false" alt="🎃"
+							src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f383.png">🪽</span>
+
+				</div>
+				<div class="chat_line" data-nick="summonangelus">
+					<span class="user_info">
+						<img class="badge"
+							src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/3">
+						<img class="badge"
+							src="https://static-cdn.jtvnw.net/badges/v1/a1dd5073-19c3-4911-8cb4-c464a7bc1510/3">
+						<span class="nick" style="color:#ffd38b;">SummonAngelus </span>
+						<span class="colon">: </span>
+					</span>
+					<span class="message">muack muack muack <img class="emote"
+							src="https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_239980a1db304d16b4aeac7e6fe28c70/default/dark/3.0">
+						aaaa a a a a aa a a tequero tequero muach cua dshfgjdsghfsdjfg dhfgjdsjhgf
 				</div>
 			</div>
-			<div class="container">
-				<h2 id="3DModels"> 3D Models </h2>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt fugit delectus voluptates enim odit
-					aliquid. Aliquid officiis odit labore ipsam nisi! Debitis at quam, tenetur hic sapiente assumenda
-					non
-					atque accusamus soluta, et perspiciatis, ut porro suscipit nihil aliquid ipsa dolor harum nobis
-					tempore
-					architecto ex quae doloribus? Officiis minima ad, quidem ducimus assumenda laboriosam, nihil
-					corporis
-					optio provident, fuga voluptatibus! Odit accusamus dolorum amet nobis temporibus error fuga
-					veritatis.
-				</p>
-			</div>
-			<div class="container">
-				<h2 id="Games"> Games </h2>
-				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint voluptates debitis iure delectus.
-					Voluptate unde cupiditate omnis nihil facilis aliquam illo soluta maiores distinctio recusandae?
-					Reprehenderit obcaecati iste earum sint.</p>
-				<h3>Citadelum</h3>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam reiciendis voluptates alias
-					facere magnam eos aliquam cupiditate quaerat, illo eveniet sequi soluta possimus voluptatum
-					explicabo quod harum et ducimus nulla sed sint autem beatae tempore odit! Illum molestias, rem harum
-					delectus fuga recusandae laboriosam, quae voluptas ipsam ab modi in debitis enim necessitatibus
-					nihil repellendus officia! Saepe debitis voluptates quisquam sapiente eligendi architecto omnis,
-					consectetur laborum laudantium tempora beatae expedita, porro iste distinctio ad, quia aliquid
-					exercitationem id facilis. Quo officiis temporibus rerum nemo.</p>
-			</div>
-			<div class="container">
-				<h2 id="VFX"> VFX & Textures </h2>
-				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad natus nostrum corrupti sapiente beatae
-					odit,
-					in tempora quis vitae doloribus animi saepe reiciendis omnis modi quo fugiat atque culpa voluptatum
-					explicabo. Libero molestiae minus aut voluptate totam voluptates culpa eum obcaecati cumque ipsam,
-					est
-					error itaque excepturi quam porro debitis sapiente praesentium necessitatibus, laboriosam, ullam
-					dicta
-					at. Quasi veniam, expedita architecto laborum ex ratione beatae magni assumenda dolorum, placeat
-					nesciunt amet dolor est odio aliquam magnam non quam, libero eligendi! Animi libero laudantium quos
-					eveniet in recusandae doloribus ducimus dolore autem, officia fugit aliquam odit temporibus
-					voluptates
-					sint minima! Culpa ducimus nihil quia labore? Vero ad odio veniam dignissimos quo at, quia quis,
-					tenetur
-					saepe assumenda consequatur molestias. Dolores vitae et id odio porro fugit earum error voluptate
-					illum
-					similique nostrum quisquam quis ipsum, autem cupiditate. Soluta magni laudantium quisquam? Enim vel
-					totam iusto. Iste pariatur incidunt molestias dolores at.</p>
-			</div>
-			<div class="container">
-				<h2 id="Materials"> Materials </h2>
-				<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto, dignissimos! Nam saepe nobis
-					harum
-					omnis laudantium. Officiis esse optio totam quis, ut aliquam voluptas commodi. Ab culpa molestiae
-					expedita non corporis debitis ratione nisi sed in porro soluta ipsum facere hic omnis doloremque
-					quos
-					aliquam mollitia nostrum ad, eaque unde minus vel rem. Ea enim asperiores temporibus dolorem
-					excepturi,
-					doloremque recusandae omnis, repellendus sapiente non, assumenda nesciunt. A molestiae nostrum
-					inventore
-					consequatur sunt placeat quaerat asperiores nisi ea molestias obcaecati magni beatae cumque animi
-					odit,
-					cum reprehenderit. Mollitia similique commodi inventore illum eveniet magnam dolores minus, nisi
-					iure?
-					Corporis, quam?</p>
+			<div id="buttons">
+				<button id="toggleButton" class="btn">Start</button>
+				<button id="clearButton" class="btn">Clear</button>
 			</div>
 		</div>
+
+		<script>
+			// Predefined random data for simulation
+			const usernames = ["Streamer", "Viewer1", "GamerPro", "ChatLurker", "FunPerson"];
+			const messages = [
+				"Hello everyone!",
+				"This is amazing!",
+				"Wow, what a play!",
+				"Can you explain that move?",
+				"Good game! GG!",
+				"Haha, that's hilarious!",
+				"When does the next match start?",
+				"Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+				"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+			];
+			const badges = [
+				"https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/3",
+				"https://static-cdn.jtvnw.net/badges/v1/d57d8874-6f23-4497-925e-7dda22f21211/3",
+				"https://static-cdn.jtvnw.net/badges/v1/a1dd5073-19c3-4911-8cb4-c464a7bc1510/3",
+				"https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/3",
+				"https://static-cdn.jtvnw.net/badges/v1/d12a2e27-16f6-41d0-ab77-b780518f00a3/3",
+				"https://static-cdn.jtvnw.net/badges/v1/b817aba4-fad8-49e2-b88a-7cc744dfa6ec/3",
+				""];
+
+			const emotes = [];
+
+			let chatInterval = null; // Variable to hold the interval ID
+
+			function getRandomItem(array) {
+				return array[Math.floor(Math.random() * array.length)];
+			}
+
+			// Generate a random chat message
+			function generateRandomMessage() {
+				const container = document.getElementById("chat_container");
+
+				//Creamos "chat_line", que es el bloque que encapsula nombre y un mensaje 
+				const chatLine = document.createElement("div");
+				chatLine.classList.add("chat_line");
+
+				//Creamos el user_info
+				const userInfo = document.createElement("span");
+				userInfo.classList.add("user_info");
+				chatLine.appendChild(userInfo);
+
+				//Asignamos las badges
+				const badgeCount = Math.floor(Math.random() * 4); // Number of badges to add
+				const usedBadges = new Set(); // Set to track used badges
+
+				for (let i = 0; i < badgeCount; i++) {
+					let badge;
+
+					// Ensure the badge is not already used
+					do {
+						badge = getRandomItem(badges);
+					} while (usedBadges.has(badge) && badge);
+
+					if (badge) {
+						usedBadges.add(badge); // Mark this badge as used
+
+						const badgeElement = document.createElement("img");
+						badgeElement.classList.add("badge");
+						badgeElement.src = badge;
+						userInfo.appendChild(badgeElement);
+					}
+				}
+
+				// Function to generate a random RGB color
+				function getRandomColor() {
+					const r = Math.floor(Math.random() * 256); // Red: 0-255
+					const g = Math.floor(Math.random() * 256); // Green: 0-255
+					const b = Math.floor(Math.random() * 256); // Blue: 0-255
+					return `rgb(${r}, ${g}, ${b})`;
+				}
+
+				// Creamos el nick
+				const nick = document.createElement("span");
+				nick.classList.add("nick");
+				nick.style.color = getRandomColor(); // Assign a random color
+				nick.textContent = getRandomItem(usernames);
+				userInfo.appendChild(nick);
+
+				//Creamos la coma
+				const colon = document.createElement("span");
+				colon.classList.add("colon");
+				colon.textContent = ":";
+				userInfo.appendChild(colon);
+
+				//Ahora hacemos el mensaje de chat
+				const messageElement = document.createElement("span");
+				messageElement.classList.add("message");
+				messageElement.textContent = getRandomItem(messages);
+				chatLine.appendChild(messageElement);
+
+				container.appendChild(chatLine);
+			}
+
+			// Start generating random messages
+			function startChatGeneration() {
+				if (!chatInterval) { // Only start if not already running
+					chatInterval = setInterval(generateRandomMessage, 500);
+					document.getElementById("toggleButton").textContent = "Stop";
+				}
+			}
+
+			// Stop generating random messages
+			function stopChatGeneration() {
+				if (chatInterval) {
+					clearInterval(chatInterval);
+					chatInterval = null; // Reset the interval ID
+					document.getElementById("toggleButton").textContent = "Start";
+				}
+			}
+
+			// Toggle chat generation
+			document.getElementById("toggleButton").addEventListener("click", function () {
+				if (chatInterval) {
+					stopChatGeneration();
+				} else {
+					startChatGeneration();
+				}
+			});
+
+			// Stop the chat generation initially
+			stopChatGeneration();
+
+			//ClearChat
+			function clearChat() {
+				const container = document.getElementById("chat_container");
+				container.innerHTML = ""; // Clear all child elements
+			}
+
+			document.getElementById("clearButton").addEventListener("click", function () {
+				clearChat();
+			});
+		</script>
 	</main>
 </body>
 

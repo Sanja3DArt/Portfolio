@@ -18,6 +18,8 @@ function toggleSubMenu (button) {
     sidebar.classList.toggle('close')
     toggleButton.classList.toggle('rotate')
   }
+
+  toggleActive(button)
 }
 
 function closeAllSubMenus () {
@@ -25,4 +27,12 @@ function closeAllSubMenus () {
     ul.classList.remove('show')
     ul.previousElementSibling.classList.remove('rotate')
   })
+}
+
+function toggleActive (button) {
+  Array.from(sidebar.getElementsByClassName('active')).forEach(ul => {
+    ul.classList.remove('active')
+  })
+
+  button.classList.add('active')
 }

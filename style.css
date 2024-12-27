@@ -6,10 +6,11 @@
 	--color3: #161a20;
 	--color4: #C8ACD6;
 
-	--color-sidebar: #0b0d10cc;
+	--color-sidebar: #0b0d106c;
 
 	--color-h1: rgb(226, 226, 226);
 	--color-h2: rgb(208, 179, 211);
+	--color-h3: rgb(181, 141, 185);
 	--color-p: rgb(240, 240, 240);
 }
 
@@ -27,14 +28,10 @@ html {
 body {
 	min-height: 100vh;
 	min-height: 100dvh;
-	/* overflow-y: auto; */
-	background-color: var(--color1);
+	overflow-y: auto;
 	display: grid;
 	grid-template-columns: auto 1fr;
 	background-image: linear-gradient(to bottom right, hsl(207, 100%, 5%), hsl(293, 100%, 5%));
-	/* flex-direction: column; */
-	/* justify-content: center; */
-	/* align-items: center; */
 }
 
 #sidebar {
@@ -160,7 +157,8 @@ body {
 	cursor: pointer;
 }
 
-#sidebar ul li.active a {
+#sidebar ul li.active a,
+#sidebar ul li button.active {
 	color: var(--color2);
 
 	svg {
@@ -170,11 +168,18 @@ body {
 
 main {
 	z-index: 0;
-	padding: 10px min(15%);
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+main h1,
+main h2,
+main h3,
+main p {
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 main h1 {
@@ -184,9 +189,8 @@ main h1 {
 	text-shadow: #b565ff9a 0px 3px 3px;
 	cursor: default;
 	user-select: none;
-	margin-top: 50px;
-	margin-bottom: 0.7em;
 	text-align: center;
+	margin-bottom: 0.3em;
 }
 
 main h2 {
@@ -194,8 +198,14 @@ main h2 {
 	text-shadow: #6432929a 0px 3px 3px;
 	cursor: default;
 	user-select: none;
-	margin-top: 5px;
-	margin-bottom: 15px;
+	font-variant: small-caps;
+}
+
+main h3 {
+	color: var(--color-h3);
+	text-shadow: #6432929a 0px 3px 3px;
+	cursor: default;
+	user-select: none;
 	font-variant: small-caps;
 }
 
@@ -203,24 +213,36 @@ main p {
 	font-size: 1em;
 	font-weight: 300;
 	color: var(--color-p);
-	margin-top: 0.5em;
-	margin-bottom: 1em;
 	text-align: justify;
 	letter-spacing: 1px;
 }
 
 #main-container {
 	margin-bottom: 20px;
-	padding: min(0, 15%);
+	padding: 10px max(15%, 100px);
 
-	border-radius: 40px;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4em;
+}
+
+.container {
+	border: 1px var(--color2) solid;
+	padding: 15px;
+
+	border-radius: 20px;
+	background-color: var(--color-sidebar);
+	z-index: 0;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
 }
 
 #links {
 	gap: 15px;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
-	justify-content: center;
 }
 
 .link-btn {
@@ -232,7 +254,6 @@ main p {
 	padding: 0.5em;
 	border: none;
 	border-radius: 10px;
-	margin-bottom: 15px;
 
 	display: flex;
 	justify-content: center;
@@ -292,7 +313,7 @@ main p {
 	}
 
 	main {
-		padding: 2em 2em 60px 2em;
+		padding: 2em 3em 60px 3em;
 	}
 
 	#main-container {
