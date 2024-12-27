@@ -6,6 +6,8 @@
 	--color3: #161a20;
 	--color4: #C8ACD6;
 
+	--color-sidebar: #0b0d10cc;
+
 	--color-h1: rgb(226, 226, 226);
 	--color-h2: rgb(208, 179, 211);
 	--color-p: rgb(240, 240, 240);
@@ -38,9 +40,11 @@ body {
 #sidebar {
 	box-sizing: border-box;
 	height: 100vh;
-	width: 200px;
+	width: 250px;
 	padding: 5px 1em;
 	border-right: 1px solid #6957d1a8;
+	background-color: var(--color-sidebar);
+	backdrop-filter: blur(10px);
 
 	position: sticky;
 	top: 0;
@@ -174,13 +178,13 @@ main {
 }
 
 main h1 {
-	font-size: 55px;
+	font-size: 70px;
 	line-height: 1em;
 	color: var(--color-h1);
 	text-shadow: #b565ff9a 0px 3px 3px;
 	cursor: default;
 	user-select: none;
-	margin-top: 15px;
+	margin-top: 50px;
 	margin-bottom: 0.7em;
 	text-align: center;
 }
@@ -206,22 +210,17 @@ main p {
 }
 
 #main-container {
-	/* box-shadow: 0px 0px 15px var(--color2); */
-	/* display: flex; */
-	/* flex-direction: column; */
-	/* justify-content: center; */
-	/* align-items: center; */
 	margin-bottom: 20px;
 	padding: min(0, 15%);
 
 	border-radius: 40px;
-	/* border: 2px red solid; */
 }
 
 #links {
-	display: flex;
-	justify-content: space-between;
 	gap: 15px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+	justify-content: center;
 }
 
 .link-btn {
@@ -233,12 +232,11 @@ main p {
 	padding: 0.5em;
 	border: none;
 	border-radius: 10px;
+	margin-bottom: 15px;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	width: 25%;
 
 	svg {
 		max-height: 1.2em;
