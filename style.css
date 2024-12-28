@@ -224,6 +224,7 @@ main p {
 	display: flex;
 	flex-direction: column;
 	gap: 0.4em;
+
 }
 
 .container {
@@ -287,6 +288,48 @@ main p {
 		fill: var(--color1);
 	}
 }
+
+.gallery {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	align-content: center;
+	gap: 10px;
+
+	overflow-x: auto;
+	overflow-y: hidden;
+
+	scrollbar-width: 8px;
+	scrollbar-color: var(--color2) transparent;
+	scrollbar-gutter: both-edges;
+}
+
+@supports selector(::-webkit-scrollbar) {
+	.gallery::-webkit-scrollbar {
+		height: 8px;
+	}
+
+	.gallery::-webkit-scrollbar-thumb {
+		background-color: var(--color2);
+		border-radius: 4px;
+	}
+}
+
+.galleryElement {
+	flex-shrink: 0;
+	/* height: 100%; */
+	max-height: 100%;
+	max-width: 100%;
+	/* width: auto; */
+}
+
+.galleryElement img {
+	width: 100%;
+	height: 100%;
+	max-height: 260px;
+	border-radius: 10px;
+}
+
 
 @keyframes popIn {
 
