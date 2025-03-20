@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+:root {
+    --nick-color: #E4A9C6;
+    --background-color: #3A2941;
+}
+
+html,
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: hidden;
+}
+
+body {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+}
+
+#chat_container {
+
+    width: 100%;
+    word-break: break-word;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 25px;
+
+    overflow-x: visible;
+    overflow-y: visible;
+    scrollbar-width: none;
+
+    padding-bottom: 2%;
+
+    font-family: '' !important;
+    font-size: var(--font-size) !important;
+    /* Para la web */
+}
+
+.chat_line {
+    background-color: var(--background-color);
+    border: 2px black solid;
+
+    font-family: "Patrick Hand";
+}
+
+.user_info {
+    display: block;
+    margin: 10px 10px 0px 10px;
+}
+
+.nick {
+    color: var(--nick-color) !important;
+    font-weight: bold;
+    letter-spacing: 0.10em;
+}
+
+.badge {
+    height: 1em;
+}
+
+.badge:last-of-type {
+    margin-right: 0.1em;
+
+}
+
+.colon {
+    display: none;
+}
+
+.message {
+    display: block;
+    background-color: white;
+    margin: 5px 10px 10px 10px;
+    padding: 15px;
+}
+
+.emote {
+    height: 1.5em;
+}
+
+.emoji {
+    height: 1.5em;
+}

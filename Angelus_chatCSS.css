@@ -25,8 +25,9 @@
 
   --text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.171);
 
-  --message-hide-delay: 15s;
-  --message-show-delay: 1s;
+  --message-hide-delay: 30s;
+  --message-hide-animDur: 5s;
+  --message-show-animDur: 1s;
 }
 
 @keyframes slideInFadeIn {
@@ -46,51 +47,62 @@
 @keyframes popIn {
   0% {
     opacity: 0;
+    transform-origin: center center;
     transform: scale(0.6);
     /* Smaller starting scale for more dramatic pop */
   }
 
   30% {
     transform: scale(1.1);
+    transform-origin: center center;
     /* Overshoot for a bouncier effect */
   }
 
   50% {
     opacity: 1;
+    transform-origin: center center;
     transform: scale(0.9);
     /* Slight contraction for a bounce-back effect */
   }
 
   70% {
+    transform-origin: center center;
     transform: scale(1.01);
     /* Small rebound overshoot */
   }
 
   85% {
+    transform-origin: center center;
     transform: scale(0.98);
     /* Settling bounce */
   }
 
   100% {
+    transform-origin: center center;
     transform: scale(1);
     /* Final resting state */
   }
 }
 
-
 @keyframes slideOut {
   0% {
-    transform: translateY(0);
-    opacity: 1;
+    transform-origin: center center;
+    transform: translateX(0);
   }
 
   90% {
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
   }
 
+  92% {
+    transform-origin: center center;
+    transform: translateX(30px);
+  }
+
   100% {
-    transform: translateY(-10px);
+    transform-origin: center center;
+    transform: translateX(-50px);
     opacity: 0;
   }
 }
@@ -137,10 +149,13 @@ body {
   transform-origin: left;
 
   line-height: normal !important;
-  /* Para la web */
 
-  animation: popIn var(--message-show-delay) ease-in-out;
-  /* animation: slideOut var(--message-hide-delay) ease-in-out forwards; */
+  animation-name: popIn, slideOut;
+  animation-duration: var(--message-show-animDur), var(--message-hide-animDur);
+  animation-delay: 0ms, var(--message-hide-delay);
+  animation-timing-function: ease-in-out, ease-in-out;
+  animation-iteration-count: 1, 1;
+  animation-fill-mode: forwards, forwards;
 }
 
 .user_info {
@@ -193,14 +208,21 @@ body {
 }
 
 .nick {
+  position: relative;
+
   font-family: var(--font-nick);
-  /* letter-spacing: 0.1em;
-  font-variant: small-caps; */
+  letter-spacing: 0.1em;
+  font-variant: small-caps;
 
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgba(0, 0, 0, 0.5);
+  -webkit-text-stroke-color: rgb(255, 255, 255, 0.10);
 
   text-shadow: var(--text-shadow);
+
+
+  display: inline-flex;
+  align-items: center;
+  z-index: 1;
 }
 
 .message {
@@ -243,14 +265,14 @@ body {
 
 }
 
-/* .chat_line:nth-child(even) .user_info {
+.chat_line:nth-child(even) .user_info {
   background-color: var(--box-nick-color2);
 }
 
 
 .chat_line:nth-child(even) .message {
   background-color: var(--box-message-color2);
-} */
+}
 
 .emoji {
   height: 1.4em !important;

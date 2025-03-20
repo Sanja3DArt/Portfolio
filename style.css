@@ -20,7 +20,7 @@
 }
 
 html {
-	font-family: 'Kanit';
+	font-family: 'Kanit', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, monospace;
 	line-height: 1.5rem;
 	font-size: 17px;
 }
