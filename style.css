@@ -316,11 +316,11 @@ main p {
 }
 
 .gallery {
-	display: flex;
+	/* display: flex;
 	flex-direction: row;
 	justify-content: start;
 	align-content: center;
-	gap: 10px;
+	gap: 10px; */
 
 	overflow-x: auto;
 	overflow-y: hidden;
@@ -328,6 +328,11 @@ main p {
 	scrollbar-width: 8px;
 	scrollbar-color: var(--color2) transparent;
 	scrollbar-gutter: both-edges;
+
+	height: 300px;
+
+	columns: 3;
+	break-inside: avoid;
 }
 
 @supports selector(::-webkit-scrollbar) {
@@ -341,19 +346,63 @@ main p {
 	}
 }
 
-.galleryElement {
-	flex-shrink: 0;
-	/* height: 100%; */
-	max-height: 100%;
-	max-width: 100%;
-	/* width: auto; */
-}
-
 .galleryElement img {
 	width: 100%;
+	border-radius: 20px;
+}
+
+.expandBtnArea {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.expandGallery {
+	background-color: var(--color3);
+	color: #f0f0f0;
+	position: relative;
+
+	height: 3em;
+	width: 3em;
+
+	padding: 0.5em;
+	border: none;
+	border-radius: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	svg {
+		max-height: 1.5em;
+		fill: var(--color-p);
+	}
+}
+
+.expandGallery::after {
+	content: '';
+	position: absolute;
 	height: 100%;
-	max-height: 260px;
-	border-radius: 10px;
+	width: 100%;
+	padding: 2px;
+	border-radius: 100%;
+	background-image: linear-gradient(to bottom right, #008cff, #e100ff);
+	z-index: -1;
+}
+
+.expandGallery:hover {
+	box-shadow: 40px 0 100px #008cff70, -40px 0 100px #e100ff70;
+	cursor: pointer;
+	animation-fill-mode: forwards;
+	z-index: 2;
+	animation: pop 0.3s ease-in-out;
+
+	svg {
+		transition: .3s ease-in-out;
+		fill: var(--color1);
+		rotate: 360deg;
+		scale: 1.4;
+	}
 }
 
 @media(max-width: 800px) {
