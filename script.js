@@ -1,5 +1,6 @@
 const toggleButton = document.getElementById('toggle-btn')
 const sidebar = document.getElementById('sidebar')
+const gallery3D = document.getElementById('3DGallery')
 
 function toggleSidebar () {
   closeAllSubMenus()
@@ -18,7 +19,6 @@ function toggleSubMenu (button) {
     sidebar.classList.toggle('close')
     toggleButton.classList.toggle('rotate')
   }
-
   toggleActive(button)
 }
 
@@ -35,4 +35,9 @@ function toggleActive (button) {
   })
 
   button.classList.add('active')
+}
+
+function toggle3DGallery (button) {
+  button.classList.toggle('rotate')
+  gallery3D.classList.toggle('expanded')
 }
