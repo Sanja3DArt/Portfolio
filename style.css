@@ -319,17 +319,20 @@ main p {
 	/* border: 1px solid red; */
 	grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
 	gap: 10px;
+	max-height: 400px;
+	overflow-y: hidden;
 }
 
 .gallery.expanded {
 	max-height: fit-content;
+	overflow-y: auto;
 }
 
 @supports selector(::-webkit-scrollbar) {
 	.gallery::-webkit-scrollbar {
 		height: 8px;
 	}
-
+	
 	.gallery::-webkit-scrollbar-thumb {
 		background-color: var(--color2);
 		border-radius: 4px;
